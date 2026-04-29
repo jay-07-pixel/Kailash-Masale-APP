@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dialog Animation Style -->
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/dialog_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_fade_out</item>
+    </style>
+
+    <!-- Spinner Dropdown Animation Style -->
+    <style name="SpinnerDropdownAnimation">
+        <item name="android:windowEnterAnimation">@anim/spinner_dropdown_open</item>
+        <item name="android:windowExitAnimation">@anim/spinner_dropdown_close</item>
+    </style>
+
+    <!-- Custom Spinner Style -->
+    <style name="CustomSpinnerStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:popupBackground">@android:color/transparent</item>
+    </style>
+
+    <!-- App-themed date picker dialog for consistent look across devices -->
+    <style name="KailashDatePickerDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/primary_color</item>
+        <item name="android:colorAccent">@color/primary_color</item>
+        <item name="android:textColorPrimary">@color/primary_color</item>
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+
+    <!-- Material date picker theme matching app colors -->
+    <style name="KailashMaterialDatePickerTheme" parent="ThemeOverlay.Material3.MaterialCalendar">
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorSecondary">@color/primary_color</item>
+        <item name="materialCalendarTheme">@style/KailashMaterialCalendarTheme</item>
+        <item name="buttonBarPositiveButtonStyle">@style/KailashDatePickerButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/KailashDatePickerButton</item>
+    </style>
+
+    <style name="KailashMaterialCalendarTheme" parent="ThemeOverlay.Material3.MaterialCalendar">
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorSurface">@android:color/white</item>
+        <item name="colorOnSurface">@color/primary_color</item>
+    </style>
+
+    <style name="KailashDatePickerButton" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/primary_color</item>
+    </style>
+</resources>

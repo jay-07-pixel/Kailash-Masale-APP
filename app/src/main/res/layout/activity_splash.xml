@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:clickable="true"
+    android:focusable="true"
+    tools:context=".SplashActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp">
+
+        <ImageView
+            android:id="@+id/splash_logo"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:alpha="0"
+            android:contentDescription="Logo"
+            android:src="@drawable/brand_logo"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/splash_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:alpha="0"
+            android:fontFamily="@font/inter_font_family"
+            android:text="Kailash Masale"
+            android:textColor="@color/primary_color"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05" />
+
+        <View
+            android:id="@+id/splash_divider"
+            android:layout_width="48dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="12dp"
+            android:alpha="0"
+            android:background="@color/primary_color" />
+
+        <TextView
+            android:id="@+id/splash_developer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:alpha="0"
+            android:fontFamily="@font/inter_font_family"
+            android:text="Developed by Team Kalpanik"
+            android:textColor="@color/placeholder_color"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</FrameLayout>

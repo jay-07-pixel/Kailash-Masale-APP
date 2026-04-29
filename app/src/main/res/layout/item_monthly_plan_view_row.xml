@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Row: D.N | W.D | LMA | Target | Incentive -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:gravity="center_vertical"
+    android:minHeight="44dp"
+    android:background="@drawable/monthly_plan_row_grey">
+
+    <TextView
+        android:id="@+id/row_dn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.2"
+        android:fontFamily="@font/inter_font_family"
+        android:gravity="center_vertical|start"
+        android:text=""
+        android:textColor="#374151"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/row_wd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/inter_font_family"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#374151"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/row_lma"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/inter_font_family"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#374151"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/row_target"
+        android:layout_width="92dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_font_family"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#374151"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/row_incentive"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/inter_font_family"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#374151"
+        android:textSize="13sp" />
+</LinearLayout>

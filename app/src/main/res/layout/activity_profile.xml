@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <!-- Header Section -->
+    <FrameLayout
+        android:id="@+id/back_button_container"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="12dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_back_button" />
+    </FrameLayout>
+
+        <TextView
+            android:id="@+id/page_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/inter_font_family"
+            android:text="Profile"
+            android:textColor="#000000"
+            android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/back_button_container"
+        app:layout_constraintStart_toEndOf="@id/back_button_container"
+        app:layout_constraintTop_toTopOf="@id/back_button_container" />
+
+    <!-- Scrollable Content -->
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/back_button_container"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Profile Picture and Name Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="32dp">
+
+                <!-- Profile Picture -->
+                <FrameLayout
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?android:attr/selectableItemBackground">
+
+                    <ImageView
+                        android:id="@+id/profile_picture"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="@drawable/profile_picture_placeholder"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Profile Picture" />
+
+                    <!-- Camera Icon Overlay -->
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_camera"
+                        android:contentDescription="Camera"
+                        android:tint="#9E9E9E" />
+                </FrameLayout>
+
+                <!-- Name and Role -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="24dp">
+
+                    <TextView
+                        android:id="@+id/profile_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_font_family"
+                        android:text="Shlok Thakkral"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/profile_role"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/inter_font_family"
+                        android:text="Employee"
+                        android:textColor="#757575"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Form Fields -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Name Field -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_font_family"
+                    android:text="Name"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/name_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/profile_input_background"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:hint=""
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/inter_font_family"
+                    android:layout_marginBottom="20dp" />
+
+                <!-- Email Field -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_font_family"
+                    android:text="E mail address"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/email_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/profile_input_background"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:inputType="textEmailAddress"
+                    android:hint=""
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/inter_font_family"
+                    android:layout_marginBottom="20dp" />
+
+                <!-- Phone Number Field -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_font_family"
+                    android:text="Phone Number"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/phone_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/profile_input_background"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:inputType="phone"
+                    android:hint=""
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/inter_font_family"
+                    android:layout_marginBottom="20dp" />
+
+                <!-- Designation Field -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_font_family"
+                    android:text="Designation"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/designation_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/profile_input_background"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:hint=""
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/inter_font_family"
+                    android:layout_marginBottom="20dp" />
+
+                <!-- Headquarters Field -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_font_family"
+                    android:text="Headquarters"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/headquarters_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/profile_input_background"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:hint=""
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/inter_font_family" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/bottom_nav_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+            <ImageButton
+                android:id="@+id/grid_button"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+            android:layout_marginStart="30dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Calendar View"
+                android:scaleType="fitCenter"
+            android:src="@drawable/calender_final_icon" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/upload_button"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Upload"
+                android:scaleType="fitCenter"
+            android:src="@drawable/upload_final_icon" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:id="@+id/check_in_out_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="8dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_font_family"
+                android:text="Check"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_font_family"
+                android:text="IN/OUT"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

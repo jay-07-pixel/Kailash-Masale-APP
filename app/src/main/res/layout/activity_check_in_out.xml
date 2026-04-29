@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
+
+        <!-- Back Button Container -->
+        <FrameLayout
+            android:id="@+id/back_button_container"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="12dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:clickable="false"
+                android:focusable="false"
+                android:contentDescription="Back"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_back_button" />
+        </FrameLayout>
+
+        <!-- Toggle: Check In / Check Out (image: selected dark slate + white text, unselected white + border + dark text) -->
+        <LinearLayout
+            android:id="@+id/toggle_container"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="40dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/back_button_container">
+
+            <LinearLayout
+                android:id="@+id/check_in_tab"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/toggle_segment_left_selected"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/check_in_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_font_family"
+                    android:text="Check In"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/check_out_tab"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/toggle_segment_right_unselected"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/check_out_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_font_family"
+                    android:text="Check Out"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ViewFlipper for Check In / Check Out Content -->
+        <ViewFlipper
+            android:id="@+id/content_flipper"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toggle_container">
+
+            <!-- Check In Content -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp">
+
+                <!-- Select Distributor Label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Select Distributor"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <!-- Distributor Spinner -->
+                <Spinner
+                    android:id="@+id/distributor_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/check_in_spinner_background"
+                    android:popupBackground="@drawable/check_in_spinner_dropdown"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="48dp"
+                    android:spinnerMode="dropdown" />
+
+                <!-- Select Bit Label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Select Bit"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <!-- Bit dropdown: options from selected distributor's bits in Firestore -->
+                <Spinner
+                    android:id="@+id/bit_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/check_in_spinner_background"
+                    android:popupBackground="@drawable/check_in_spinner_dropdown"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="48dp"
+                    android:spinnerMode="dropdown" />
+
+                <!-- Primary Target Label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Primary Target"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <!-- Primary Target: type on left, " / 200kg" fixed on right -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/check_in_input_background"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingEnd="12dp"
+                    android:paddingStart="16dp">
+
+                    <EditText
+                        android:id="@+id/primary_target_input"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:fontFamily="@font/inter_font_family"
+                        android:gravity="start|center_vertical"
+                        android:hint=""
+                        android:inputType="number"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/primary_target_suffix"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_font_family"
+                        android:text=" / 200kg"
+                        android:textColor="#FF5733"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- Working With Label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Working With"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <!-- Working With EditText -->
+                <EditText
+                    android:id="@+id/working_with_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/check_in_input_background"
+                    android:fontFamily="@font/inter_font_family"
+                    android:hint=""
+                    android:inputType="text"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="#424242"
+                    android:textColorHint="#9934404F"
+                    android:textSize="16sp" />
+
+                <!-- Submit Button -->
+                <LinearLayout
+                    android:id="@+id/submit_button"
+                    android:layout_width="251dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/check_in_button_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="Submit"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- Add Location Button -->
+                <LinearLayout
+                    android:id="@+id/add_location_button"
+                    android:layout_width="211dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/check_in_button_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_location_pin" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="Check In"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Check Out Content -->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="40dp"
+                    android:paddingEnd="40dp"
+                    android:paddingBottom="24dp">
+
+                <!-- Selected Distributor Label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Selected Distributor:-"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/checkout_distributor_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/inter_font_family"
+                    android:text=""
+                    android:textColor="#424242"
+                    android:textSize="16sp" />
+
+                <!-- Selected Bit Label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Selected Bit:-"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/checkout_bit_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/inter_font_family"
+                    android:text=""
+                    android:textColor="#424242"
+                    android:textSize="16sp" />
+
+                <!-- Total calls Label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Total calls"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <!-- Total calls Input -->
+                <EditText
+                    android:id="@+id/total_calls_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/check_in_input_background"
+                    android:fontFamily="@font/inter_font_family"
+                    android:hint=""
+                    android:inputType="number"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="#424242"
+                    android:textSize="16sp" />
+
+                <!-- Productive calls Label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Productive calls"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <!-- Productive calls Input -->
+                <EditText
+                    android:id="@+id/productive_calls_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/check_in_input_background"
+                    android:fontFamily="@font/inter_font_family"
+                    android:hint=""
+                    android:inputType="number"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="#424242"
+                    android:textSize="16sp" />
+
+                <!-- Achieved secondary Label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Achieved secondary"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <!-- Achieved secondary Input (e.g. number or "No secondary") -->
+                <EditText
+                    android:id="@+id/achieved_secondary_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/check_in_input_background"
+                    android:fontFamily="@font/inter_font_family"
+                    android:hint="e.g. 50 or No secondary"
+                    android:inputType="textCapSentences"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="#424242"
+                    android:textSize="16sp" />
+
+                <!-- Achieved Primary Label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Achieved Primary"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <!-- Achieved Primary Input -->
+                <EditText
+                    android:id="@+id/achieved_primary_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/check_in_input_background"
+                    android:fontFamily="@font/inter_font_family"
+                    android:hint=""
+                    android:inputType="number"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="#424242"
+                    android:textSize="16sp" />
+
+                <!-- Additional Notes Label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Additional Notes"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <!-- Additional Notes Input -->
+                <EditText
+                    android:id="@+id/additional_notes_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/check_in_input_background"
+                    android:fontFamily="@font/inter_font_family"
+                    android:gravity="top|start"
+                    android:hint=""
+                    android:inputType="textMultiLine"
+                    android:padding="12dp"
+                    android:textColor="#424242"
+                    android:textSize="16sp" />
+
+                <!-- Night Hoult Checkbox -->
+                <CheckBox
+                    android:id="@+id/night_hoult_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/inter_font_family"
+                    android:text="Night Hoult"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <!-- Checkout Button -->
+                <LinearLayout
+                    android:id="@+id/checkout_button"
+                    android:layout_width="251dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/check_in_button_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_font_family"
+                        android:text="Submit"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- End location Button -->
+                <LinearLayout
+                    android:id="@+id/end_location_button"
+                    android:layout_width="211dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/check_in_button_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_location_pin" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/inter_font_family"
+                        android:text="Check Out"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+        </ViewFlipper>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

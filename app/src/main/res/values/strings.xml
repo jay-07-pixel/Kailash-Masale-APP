@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">KAILASH MASALE</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="login_subtitle">Login to access your account</string>
+    <string name="select_domain">Select Domain</string>
+    <string name="domain_placeholder">---------------</string>
+    <string name="user_id">User Id</string>
+    <string name="user_id_hint">Enter Your User Id Here</string>
+    <string name="password">Password</string>
+    <string name="password_hint">Enter Your Password Here</string>
+    <string name="remember_me">Remember me</string>
+    <string name="login_button">LoG In</string>
+</resources>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialog_card"
+    android:layout_width="340dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp">
+
+    <LinearLayout
+        android:id="@+id/dialog_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Header with Title and Close Button -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/dialog_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/inter_medium"
+                android:text="Upload Stock Sheet"
+                android:textColor="#212121"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:id="@+id/dialog_close_button"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Close"
+                android:src="@drawable/ic_close" />
+        </RelativeLayout>
+
+        <!-- Select Distributer Label -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/inter_font_family"
+            android:text="Select Distributer"
+            android:textColor="#424242"
+            android:textSize="16sp" />
+
+        <!-- Dropdown Spinner Container -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/spinner_border_container"
+            android:padding="1.5dp"
+            android:clipToPadding="false">
+            
+            <Spinner
+                android:id="@+id/distributer_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:paddingStart="16dp"
+                android:paddingEnd="40dp"
+                android:gravity="center_vertical"
+                android:popupBackground="@drawable/spinner_dropdown_background"
+                android:dropDownSelector="@drawable/spinner_dropdown_background"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+                android:dropDownVerticalOffset="50dp"
+                android:spinnerMode="dropdown" />
+        </FrameLayout>
+
+        <!-- Dropdown expansion container -->
+        <LinearLayout
+            android:id="@+id/dropdown_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical"
+            android:visibility="gone" />
+
+        <!-- Upload Button (opens gallery/camera) -->
+        <LinearLayout
+            android:id="@+id/upload_sheet_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/upload_button_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_upload_button"
+                android:contentDescription="Upload" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="Upload Stock Sheet"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Image preview (shown after image selected/captured) -->
+        <ImageView
+            android:id="@+id/stock_image_preview"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            android:scaleType="centerCrop"
+            android:contentDescription="Selected image" />
+
+        <!-- Submit button (shown after image selected) -->
+        <Button
+            android:id="@+id/stock_submit_button"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:backgroundTint="#34404F"
+            android:fontFamily="@font/inter_font_family"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+

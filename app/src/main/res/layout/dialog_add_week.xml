@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialog_card"
+    android:layout_width="340dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp">
+
+    <LinearLayout
+        android:id="@+id/dialog_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Days of Week Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:id="@+id/day_m"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:text="M"
+                android:textColor="#34404F"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/inter_font_family"
+                android:background="@drawable/day_button_unselected"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/day_t"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="6dp"
+                android:gravity="center"
+                android:text="T"
+                android:textColor="#34404F"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/inter_font_family"
+                android:background="@drawable/day_button_unselected"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/day_w"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="6dp"
+                android:gravity="center"
+                android:text="W"
+                android:textColor="#34404F"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/inter_font_family"
+                android:background="@drawable/day_button_unselected"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/day_th"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="6dp"
+                android:gravity="center"
+                android:text="Th"
+                android:textColor="#34404F"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/inter_font_family"
+                android:background="@drawable/day_button_unselected"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/day_f"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="6dp"
+                android:gravity="center"
+                android:text="F"
+                android:textColor="#34404F"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/inter_font_family"
+                android:background="@drawable/day_button_unselected"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/day_s"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="6dp"
+                android:gravity="center"
+                android:text="S"
+                android:textColor="#34404F"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/inter_font_family"
+                android:background="@drawable/day_button_unselected"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+
+        <!-- Date Field -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Date:-"
+                android:textColor="#34404F"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_semibold" />
+
+            <EditText
+                android:id="@+id/date_edittext"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1.5"
+                android:background="@drawable/dialog_input_field_background"
+                android:hint="DD / MM / YYYY"
+                android:inputType="date"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="#34404F"
+                android:textColorHint="#BDBDBD"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_font_family" />
+        </LinearLayout>
+
+        <!-- Distributor Name Field -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Distributor Name:-"
+                android:textColor="#34404F"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_semibold" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1.5"
+                android:background="@drawable/dialog_input_field_background"
+                android:padding="1.5dp"
+                android:clipToPadding="false">
+
+                <Spinner
+                    android:id="@+id/distributor_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="40dp"
+                    android:gravity="center_vertical"
+                    android:popupBackground="@drawable/spinner_dropdown_background"
+                    android:dropDownSelector="@drawable/spinner_dropdown_background"
+                    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+                    android:dropDownVerticalOffset="48dp"
+                    android:spinnerMode="dropdown" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Bit Name Field (dropdown - options from selected distributor) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Bit Name:-"
+                android:textColor="#34404F"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_semibold" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1.5"
+                android:background="@drawable/dialog_input_field_background"
+                android:padding="1.5dp"
+                android:clipToPadding="false">
+
+                <Spinner
+                    android:id="@+id/bit_name_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="40dp"
+                    android:gravity="center_vertical"
+                    android:popupBackground="@drawable/spinner_dropdown_background"
+                    android:dropDownSelector="@drawable/spinner_dropdown_background"
+                    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+                    android:dropDownVerticalOffset="48dp"
+                    android:spinnerMode="dropdown" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Last Visit Day Field -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Last Visit Day:-"
+                android:textColor="#34404F"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_semibold" />
+
+            <EditText
+                android:id="@+id/last_visit_day_edittext"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1.5"
+                android:background="@drawable/dialog_input_field_background"
+                android:hint="DD / MM / YYYY"
+                android:inputType="date"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="#34404F"
+                android:textColorHint="#BDBDBD"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_font_family" />
+        </LinearLayout>
+
+        <!-- Primary Target Pending Field -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Primary Target Pending:-"
+                android:textColor="#34404F"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_semibold" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1.5"
+                android:background="@drawable/dialog_input_field_background">
+
+                <EditText
+                    android:id="@+id/primary_target_pending_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="Enter value"
+                    android:inputType="numberDecimal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="40dp"
+                    android:textColor="#34404F"
+                    android:textColorHint="#BDBDBD"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/inter_font_family" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="16dp"
+                    android:text="kg"
+                    android:textColor="#34404F"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/inter_font_family" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Primary Goal Field -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Primary Goal:-"
+                android:textColor="#34404F"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_semibold" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1.5"
+                android:background="@drawable/dialog_input_field_background">
+
+                <EditText
+                    android:id="@+id/primary_goal_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="Enter value"
+                    android:inputType="numberDecimal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="40dp"
+                    android:textColor="#34404F"
+                    android:textColorHint="#BDBDBD"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/inter_font_family" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="16dp"
+                    android:text="kg"
+                    android:textColor="#34404F"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/inter_font_family" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Save Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/save_button"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/dialog_save_button"
+            android:backgroundTint="@null"
+            android:text="Save"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/inter_font_family"
+            android:textAllCaps="false" />
+
+        <!-- Submit Button (visible only when Mon–Sat all filled) -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/submit_week_button"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:visibility="gone"
+            android:background="@drawable/dialog_save_button"
+            android:backgroundTint="@null"
+            android:text="Submit"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/inter_font_family"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

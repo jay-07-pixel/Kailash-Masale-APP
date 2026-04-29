@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginBottom="8dp">
+
+    <TextView
+        android:id="@+id/task_row_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1."
+        android:textColor="#333333"
+        android:textSize="14sp"
+        android:fontFamily="@font/inter_font_family"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/task_row_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text=""
+        android:textColor="#333333"
+        android:textSize="14sp"
+        android:fontFamily="@font/inter_font_family"
+        android:lineSpacingExtra="2dp" />
+</LinearLayout>

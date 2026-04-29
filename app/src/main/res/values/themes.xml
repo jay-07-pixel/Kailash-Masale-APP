@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.KAILASHMASALE" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Apply Inter font globally -->
+        <item name="android:fontFamily">@font/inter_font_family</item>
+        <item name="fontFamily">@font/inter_font_family</item>
+    </style>
+
+    <style name="Theme.KAILASHMASALE" parent="Base.Theme.KAILASHMASALE" />
+
+    <!-- Splash screen - white background, no action bar -->
+    <style name="Theme.KAILASHMASALE.Splash" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:navigationBarColor">@android:color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:fontFamily">@font/inter_font_family</item>
+    </style>
+
+    <!-- Force Light Mode Theme for Dashboard -->
+    <style name="Theme.KAILASHMASALE.ForceLight" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorSurface">@android:color/white</item>
+        <!-- Apply Inter font globally -->
+        <item name="android:fontFamily">@font/inter_font_family</item>
+        <item name="fontFamily">@font/inter_font_family</item>
+    </style>
+</resources>

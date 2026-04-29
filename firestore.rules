@@ -1,0 +1,81 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Employees: app uses custom login (reads by email + defaultPassword), no Firebase Auth
+    match /employees/{employeeId} {
+      allow read, write: if true;
+    }
+
+    // Distributors: read for check-in spinner, write for create/assign
+    match /distributors/{distributorId} {
+      allow read, write: if true;
+    }
+
+    // Check-ins: app writes on check-in submit
+    match /check_ins/{document=**} {
+      allow read, write: if true;
+    }
+
+    // Check-outs: app writes on check-out submit
+    match /check_outs/{document=**} {
+      allow read, write: if true;
+    }
+
+    // Tasks: app reads/writes tasks assigned to employees
+    match /tasks/{taskId} {
+      allow read, write: if true;
+    }
+
+    // Leave applications: app writes on leave form submit
+    match /leave_applications/{document=**} {
+      allow read, write: if true;
+    }
+
+    // Locations: Create Location page (name, lat, lng, radius)
+    match /locations/{locationId} {
+      allow read, write: if true;
+    }
+
+    // Orders: app reads for Orders table; mobile/web may write new orders
+    match /orders/{orderId} {
+      allow read, write: if true;
+    }
+
+    // SKUs: Manage SKUs (Orders page) and seed from products.xlsx
+    match /skus/{skuId} {
+      allow read, write: if true;
+    }
+
+    // Stock sheets: per employee per distributor per month; status Pending until uploaded then Received
+    match /stock_sheets/{docId} {
+      allow read, write: if true;
+    }
+
+    // Weekly plans / weekly approvals
+    match /weekly_plans/{docId} {
+      allow read, write: if true;
+    }
+
+    // Monthly data (camelCase): admin edit – Working Days + Primary per period per distributor
+    match /monthlyData/{docId} {
+      allow read, write: if true;
+    }
+
+    // Monthly plan data: per-employee per-distributor target, lma, workingDays, incentive rows
+    match /monthly_data/{docId} {
+      allow read, write: if true;
+    }
+
+    // Expenditure: employee expense submissions (lowercase)
+    match /expenditure/{docId} {
+      allow read, write: if true;
+    }
+
+    // Expenditure: disbursement data (capital E – totals + daily details per employee per month)
+    match /Expenditure/{docId} {
+      allow read, write: if true;
+    }
+  }
+}
